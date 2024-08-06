@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "name" : "Pradeep Biswas",
+        "age" : 32,
+        "add" : "Sarni"
+    },
+    {
+        "id" : 2,
+        "name" : "Chandan Biswas",
+        "age" : 30,
+        "add" : "Sarni"
+    },
+    {
+        "id" : 3,
+        "name" : "Gaurav Biswas",
+        "age" : 25,
+        "add" : "Betul"
+    },
+    {
+        "id" : 4,
+        "name" : "Surabhi Biswas",
+        "age" : 20,
+        "add" : "Betul"
+    }
+]
