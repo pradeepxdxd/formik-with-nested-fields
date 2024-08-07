@@ -6,14 +6,6 @@ import { object, number, string, boolean, array } from "yup"
 import data from '../data.json'
 
 export default function FlowDataOfDonation() {
-  // const [initialState, setInitialState] = useState([])
-  // useEffect(() => {
-  //   if (data.length > 0) {
-  //     const newData = data.map(dt => ({...dt, institution : '', percentage : 0}))
-  //     setInitialState(newData)
-  //   }
-  // }, [])
-
   const [initialState, setInitialState] = useState({
     fullName: '',
     donationsAmount: 0,
@@ -41,12 +33,6 @@ export default function FlowDataOfDonation() {
           <CardHeader title={'Flow of donation'} />
           <CardContent>
             <Formik
-              // initialValues={{
-              //   fullName: '',
-              //   donationsAmount: 0,
-              //   termsAndConditions: false,
-              //   donations: initialState
-              // }}
               enableReinitialize
               initialValues={initialState}
               validationSchema={object({
