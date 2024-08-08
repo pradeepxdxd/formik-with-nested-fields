@@ -1,5 +1,5 @@
-import { Button, Card, CardContent, CardHeader, CircularProgress, Grid } from "@mui/material"
-import { Field, FieldArray, Form, Formik } from "formik"
+import { Button, Card, CardContent, CardHeader, CircularProgress, colors, Grid, TextField as TextFieldMUI } from "@mui/material"
+import { ErrorMessage, Field, FieldArray, Form, Formik } from "formik"
 import { CheckboxWithLabel, TextField } from "formik-material-ui"
 import { object, number, string, boolean, array } from "yup"
 
@@ -11,12 +11,14 @@ export const Donations = () => {
           <Formik
             initialValues={{
               fullName: '',
+              demo: '',
               donationsAmount: 0,
               termsAndConditions: false,
               donations: [{ institution: '', percentage: 0 }]
             }}
             validationSchema={object({
               fullName: string().required('FullName is requried').min(2, 'FullName should be atleast more than 2 character').max(10, 'FullName should be less than 10 character'),
+              demo: string().required(),
               donationsAmount: number().required('Donation is required').min(10, 'Donation should be more than 10'),
               termsAndConditions: boolean().required().isTrue(),
               donations: array(object({
@@ -29,11 +31,15 @@ export const Donations = () => {
               resetForm()
             }}
           >
-            {({ values, errors, isSubmitting }) => (
+            {({ values, errors, isSubmitting, handleChange, handleBlur, touched }) => (
               <Form>
                 <Grid container direction={'column'} spacing={2}>
                   <Grid item>
                     <Field fullWidth name='fullName' type='text' component={TextField} label='First Name' />
+                  </Grid>
+                  <Grid item>
+                    <TextFieldMUI fullWidth name='demo' onChange={handleChange} type='text' label='demo' onBlur={handleBlur} error={Boolean(touched.demo && errors.demo)}
+                      helperText={touched.demo && errors.demo ? errors.demo : ''} />
                   </Grid>
                   <Grid item>
                     <Field fullWidth name='donationsAmount' type='number' component={TextField} label='Donation' />

@@ -5,9 +5,9 @@ import MultiStepForm from "./components/MultiStepForm"
 export const App = () => {
   return (
     <>
-      {/* <Donations /> */}
+      <Donations />
       {/* <FlowDataOfDonation /> */}
-      <MultiStepForm />
+      {/* <MultiStepForm /> */}
     </>
   )
 }
